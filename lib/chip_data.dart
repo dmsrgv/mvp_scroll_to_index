@@ -46,22 +46,3 @@ class Product {
 
   const Product({required this.name, this.categoryId});
 }
-
-final List<Product> products = [
-  ...List.generate(
-    12,
-    (index) => Product(name: 'Вафли $index', categoryId: 0),
-  ),
-  ...List.generate(
-    48,
-    (index) => Product(name: 'Самокаты $index', categoryId: 1),
-  ),
-  ...List.generate(
-    13,
-    (index) => Product(name: 'Мотоциклы $index', categoryId: 2),
-  ),
-  ...List.generate(
-    17,
-    (index) => Product(name: 'Скутеры $index', categoryId: 3),
-  ),
-];

@@ -1,21 +1,8 @@
-import 'dart:async';
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/chip_data.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 
-void main() => runZonedGuarded<Future<void>>(
-      () async {
-        runApp(const App());
-      },
-      (error, stackTrace) => log(
-        'Top level exception',
-        error: error,
-        stackTrace: stackTrace,
-        level: 1000,
-        name: 'main',
-      ),
-    );
+void main() => runApp(const App());
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -23,31 +10,9 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MaterialApp(
         theme: ThemeData(useMaterial3: true),
-        title: 'Sliver Scroll to index',
-        home: const HomeScreen(),
+        debugShowCheckedModeBanner: false,
+        home: const CatalogScreen(),
       );
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sliver Scroll to index'),
-      ),
-      body: SafeArea(
-        child: Center(
-          child: ElevatedButton(
-            onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => const CatalogScreen())),
-            child: const Text('Категория'),
-          ),
-        ),
-      ),
-    );
-  }
 }
 
 class CatalogScreen extends StatefulWidget {
